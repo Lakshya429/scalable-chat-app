@@ -13,6 +13,9 @@ import { instrument } from "@socket.io/admin-ui";
 import { connectKafkaProducer } from "./config/kafka.config.js";
 import { consumeMessages } from "./helper.js";
 
+
+
+
 const server = createServer(app);
 const io = new Server(server, {
   cors: {
