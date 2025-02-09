@@ -12,7 +12,16 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
-
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+    
+      - name: Install dependencies
+        run: npm install
+    
+      - name: Install TypeScript (if missing)
+        run: npm install -g typescript
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:

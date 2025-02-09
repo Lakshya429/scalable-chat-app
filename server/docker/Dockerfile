@@ -10,7 +10,7 @@ RUN apk upgrade --update-cache --available && \
     
 COPY package.json package-lock.json ./
 RUN npm install --production
-
+RUN npm install -g typescript 
 
 COPY prisma ./
 RUN npx prisma generate
