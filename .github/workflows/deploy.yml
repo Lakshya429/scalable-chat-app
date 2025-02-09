@@ -18,10 +18,17 @@ jobs:
           node-version: 18
     
       - name: Install dependencies
+        working-directory: server
         run: npm install
     
-      - name: Install TypeScript (if missing)
+      - name: Install TypeScript
+        working-directory: server
         run: npm install -g typescript
+        
+      - name: Install dependencies
+        working-directory: front
+        run: npm install
+    
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
