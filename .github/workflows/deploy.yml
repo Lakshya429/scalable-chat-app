@@ -21,14 +21,14 @@ jobs:
 
       - name: Build and Push Images
         run: |
-          # Extract service names from docker-compose.yml
-          services=$(docker-compose config --services)
+          # Extract service names from docker compose.yml
+          services=$(docker compose config --services)
           
           for service in $services; do
             image_name="${{ secrets.DOCKER_USERNAME }}/my-chat-app-${service}"
             
             # Build the service
-            docker-compose build $service
+            docker compose build $service
 
             # Tag the image
             docker tag my-chat-app_${service}:latest $image_name:latest
@@ -40,4 +40,4 @@ jobs:
           done
 
       - name: Verify Deployment
-        run: docker-compose images
+        run: docker compose images
