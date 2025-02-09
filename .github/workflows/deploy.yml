@@ -47,12 +47,12 @@ jobs:
             docker compose build $service
 
             # Tag the image
-            docker tag my-chat-app_${service}:latest $image_name:latest
+            docker tag my-chat-app_${service} $image_name
             
             # Push to Docker Hub
-            docker push $image_name:latest
+            docker push $image_name
             
-            echo "Pushed $image_name:latest to Docker Hub"
+            echo "Pushed $image_name to Docker Hub"
           done
 
       - name: Verify Deployment
