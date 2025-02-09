@@ -41,18 +41,18 @@ jobs:
           services=$(docker compose config --services)
           
           for service in $services; do
-            image_name="${{ secrets.DOCKER_USERNAME }}/my-chat-app-${service}"
+            image_name="${{ secrets.DOCKER_USERNAME }}/scalable-chat-app-${service}"
             
             # Build the service
             docker compose build $service
 
             # Tag the image
-            docker tag my-chat-app_${service} $image_name
+            docker tag scalable-chat-app-${service}:latest $image_name:latest
             
             # Push to Docker Hub
-            docker push $image_name
+            docker push $image_name:latest
             
-            echo "Pushed $image_name to Docker Hub"
+            echo "Pushed $image_name:latest to Docker Hub"
           done
 
       - name: Verify Deployment
