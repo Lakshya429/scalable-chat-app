@@ -3,7 +3,7 @@ name: Build on PR
 on:
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   build:
@@ -42,7 +42,7 @@ jobs:
       - name: Install Dependencies (Backend)
         working-directory: front
         run: npm install
-                
+
       - name: Run Build
         working-directory: front
         run: npm run build
